@@ -390,8 +390,8 @@ function LockScreen({ onUnlock }: { onUnlock: () => void }) {
                     onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.08)")}
                   >
                     <span style={{ fontFamily: "'SF Pro Display', -apple-system, sans-serif", fontSize: 32, fontWeight: 300, color: "#fff", lineHeight: 1 }}>{d}</span>
-                    {letterMap[d] && (
-                      <span style={{ fontFamily: "'SF Pro Text', -apple-system, sans-serif", fontSize: 9, fontWeight: 600, color: "rgba(255,255,255,0.5)", letterSpacing: "2px", lineHeight: 1 }}>{letterMap[d]}</span>
+                    {letterMap[d as number] && (
+                      <span style={{ fontFamily: "'SF Pro Text', -apple-system, sans-serif", fontSize: 9, fontWeight: 600, color: "rgba(255,255,255,0.5)", letterSpacing: "2px", lineHeight: 1 }}>{letterMap[d as number]}</span>
                     )}
                   </button>
                 );
