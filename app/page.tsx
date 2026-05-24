@@ -17,7 +17,7 @@ function useTime() {
 /* ═══════════════════════════════════════════
    MODAL DE ADVERTENCIA
    ═══════════════════════════════════════════ */
-function WarningModal({ onAccept }) {
+function WarningModal({ onAccept }: { onAccept: () => void }) {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     setTimeout(() => setVisible(true), 50);
@@ -124,7 +124,7 @@ function WarningModal({ onAccept }) {
 /* ═══════════════════════════════════════════
    WELCOME SCREEN
    ═══════════════════════════════════════════ */
-function WelcomeScreen({ onAccess }) {
+function WelcomeScreen({ onAccess }: { onAccess: () => void }) {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
@@ -246,7 +246,7 @@ function WelcomeScreen({ onAccess }) {
 /* ═══════════════════════════════════════════
    LOCK SCREEN
    ═══════════════════════════════════════════ */
-function LockScreen({ onUnlock }) {
+function LockScreen({ onUnlock }: { onUnlock: () => void }) {
   const now = useTime();
   const [code, setCode] = useState("");
   const [error, setError] = useState(false);
