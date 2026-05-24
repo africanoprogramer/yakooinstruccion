@@ -257,7 +257,7 @@ function LockScreen({ onUnlock }: { onUnlock: () => void }) {
   const dateStr = now.toLocaleDateString("es-ES", { weekday: "long", day: "numeric", month: "long" });
   const capitalDate = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
 
-  const handleDigit = (d) => {
+  const handleDigit = (d: string) => {
     if (success) return;
     if (code.length >= PASSCODE_LENGTH) return;
     const next = code + d;
@@ -296,14 +296,14 @@ function LockScreen({ onUnlock }: { onUnlock: () => void }) {
     setError(false);
   };
 
-  const digits = [
+  const digits: (number | string | null)[][] = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9],
     [null, 0, "del"],
   ];
 
-  const letterMap = { 2: "A B C", 3: "D E F", 4: "G H I", 5: "J K L", 6: "M N O", 7: "P Q R S", 8: "T U V", 9: "W X Y Z" };
+  const letterMap: Record<number, string> = { 2: "A B C", 3: "D E F", 4: "G H I", 5: "J K L", 6: "M N O", 7: "P Q R S", 8: "T U V", 9: "W X Y Z" };
 
   return (
     <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", background: "linear-gradient(180deg, #0a0a0a 0%, #111111 100%)", overflow: "hidden", animation: "screenFadeIn 0.5s ease" }}>
