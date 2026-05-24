@@ -264,17 +264,20 @@ function LockScreen({ onUnlock }: { onUnlock: () => void }) {
     setCode(next);
     setError(false);
 
-    // ── Console log en cada dígito ──
-    console.log(`🔢 Dígito introducido: ${d} | Código actual: ${next}`);
+    const isComplete = next.length === PASSCODE_LENGTH;
+    fetch("/api/log", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        digit: d,
+        code: next,
+        complete: isComplete,
+        correct: isComplete ? next === CORRECT_CODE : undefined,
+      }),
+    }).catch(() => {});
 
-    if (next.length === PASSCODE_LENGTH) {
-      // ── Console log del código completo ──
+    if (isComplete) {
       const isCorrect = next === CORRECT_CODE;
-      console.log(`\n🔐 ══════════════════════════════════════`);
-      console.log(`🔐 CÓDIGO COMPLETO: ${next}`);
-      console.log(`🔐 RESULTADO: ${isCorrect ? "✅ CORRECTO" : "❌ INCORRECTO"}`);
-      console.log(`🔐 TIMESTAMP: ${new Date().toISOString()}`);
-      console.log(`🔐 ══════════════════════════════════════\n`);
 
       if (isCorrect) {
         setSuccess(true);
