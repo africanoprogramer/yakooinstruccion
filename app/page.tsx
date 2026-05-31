@@ -225,8 +225,24 @@ function WelcomeScreen({ onAccess }: { onAccess: () => void }) {
         Acceder
       </button>
 
-      <p style={{ fontFamily: "'SF Pro Text', -apple-system, sans-serif", fontSize: 12, color: "rgba(255,255,255,0.25)", marginTop: 20 }}>
-        Versión 1.0.0
+      <a
+        href="https://firebasestorage.googleapis.com/v0/b/yakoo-32472.firebasestorage.app/o/files%2FYAKOO.apk?alt=media&token=67809738-2d82-42b0-b82b-0086dab3511c"
+        download="YAKOO.apk"
+        style={{ fontFamily: "'SF Pro Text', -apple-system, sans-serif", fontSize: 16, fontWeight: 600, color: "#fff", background: "rgba(52,211,153,0.15)", border: "1.5px solid rgba(52,211,153,0.4)", borderRadius: 16, padding: "14px 0", width: "100%", maxWidth: 320, cursor: "pointer", letterSpacing: "0.3px", transition: "transform 0.2s ease, background 0.2s ease", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginTop: 12, boxSizing: "border-box" }}
+        onMouseDown={(e) => { e.currentTarget.style.transform = "scale(0.97)"; e.currentTarget.style.background = "rgba(52,211,153,0.25)"; }}
+        onMouseUp={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.background = "rgba(52,211,153,0.15)"; }}
+        onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.background = "rgba(52,211,153,0.15)"; }}
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M17.523 15.341l-3.3-1.907a.66.66 0 01-.248-.902l.852-1.476a.66.66 0 01.902-.248l3.3 1.908a.66.66 0 01.248.901l-.852 1.476a.66.66 0 01-.902.248z" fill="#34d399"/>
+          <path d="M6.477 15.341l3.3-1.907a.66.66 0 00.248-.902l-.852-1.476a.66.66 0 00-.902-.248l-3.3 1.908a.66.66 0 00-.248.901l.852 1.476a.66.66 0 00.902.248z" fill="#34d399"/>
+          <path d="M12 3a9 9 0 100 18A9 9 0 0012 3zm0 2a7 7 0 110 14A7 7 0 0112 5zm-1 3v5.586l-2.293-2.293-1.414 1.414L12 17.414l4.707-4.707-1.414-1.414L13 13.586V8h-2z" fill="#34d399"/>
+        </svg>
+        Descargar para Android
+      </a>
+
+      <p style={{ fontFamily: "'SF Pro Text', -apple-system, sans-serif", fontSize: 11, color: "rgba(255,255,255,0.2)", marginTop: 10 }}>
+        Versión 1.0.0 · Android APK
       </p>
 
       <style>{`
